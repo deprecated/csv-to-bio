@@ -4,7 +4,7 @@ FIRMEN = []
 
 
 def write_to_csv():
-    with open('data.txt', mode='w', encoding='utf-8-sig', newline='') as csv_file:
+    with open('data-v1.txt', mode='w', encoding='utf-8-sig', newline='') as csv_file:
         fieldnames = ['token', 'ner']
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames, delimiter=" ")
 
@@ -89,10 +89,10 @@ def write_to_csv():
                             break
                         if i == 0:
                             writer.writerow(
-                                {"token": e.strip(), "ner": "O"})
+                                {"token": e.strip(), "ner": "B-PHONE"})
                         else:
                             writer.writerow(
-                                {"token": e.strip(), "ner": "O"})
+                                {"token": e.strip(), "ner": "I-PHONE"})
 
                 # FAX
                 if index == 7:
@@ -102,10 +102,10 @@ def write_to_csv():
                             break
                         if i == 0:
                             writer.writerow(
-                                {"token": e.strip(), "ner": "O"})
+                                {"token": e.strip(), "ner": "B-FAX"})
                         else:
                             writer.writerow(
-                                {"token": e.strip(), "ner": "O"})
+                                {"token": e.strip(), "ner": "I-FAX"})
 
                 # USTD-ID
                 if index == 8:
